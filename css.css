@@ -1,24 +1,52 @@
+/* Reset simple */
+body, h1, h2, p, ul, li, a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0 20px;
+  line-height: 1.6;
   background-color: #f5f5f5;
+  padding: 20px;
 }
 
 header {
   text-align: center;
-  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+header nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  color: #ff6600;
 }
 
 section {
-  margin: 50px 0;
+  margin-bottom: 50px;
+}
+
+ul {
+  list-style: none;
 }
 
 a {
   color: #007bff;
-  text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Responsive simple */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
 }
