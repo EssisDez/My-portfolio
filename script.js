@@ -13,27 +13,26 @@ function typeWriter() {
 typeWriter();
 
 // SMOOTH SCROLL FOR NAV
-const links = document.querySelectorAll('nav a[href^="#"]');
-links.forEach(link => {
-  link.addEventListener('click', e => {
+document.querySelectorAll('nav a[href^="#"]').forEach(link=>{
+  link.addEventListener('click', e=>{
     e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if(target){
-      target.scrollIntoView({behavior:'smooth'});
-    }
+    document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'});
   });
 });
 
 // PROJECTS ARRAY
 const projects = [
-  {name:"Marketing Analysis", img:"monthly_salesforcast.png", description:"Segmentation & Forecast for retail business.", link:"https://github.com/YOUR_GITHUB_USERNAME/project1"},
-  {name:"AI Model", img:"customer_clusters.png", description:"Customer churn prediction using ML models.", link:"https://github.com/YOUR_GITHUB_USERNAME/project2"},
-  {name:"Sales Dashboard", img:"daily_salesForcast.png", description:"Interactive Tableau dashboard for sales insights.", link:"https://github.com/YOUR_GITHUB_USERNAME/project3"}
+  {name:"Marketing Analysis", img:"monthly_salesforcast.png", description:"Segmentation & Forecast for retail business.", link:"#"},
+  {name:"AI Model", img:"customer_clusters.png", description:"Customer churn prediction using ML models.", link:"#"},
+  {name:"Sales Dashboard", img:"daily_salesForcast.png", description:"Interactive Tableau dashboard for sales insights.", link:"#"},
+  {name:"Project 4", img:"project4.png", description:"Description of project 4.", link:"#"},
+  {name:"Project 5", img:"project5.png", description:"Description of project 5.", link:"#"},
+  {name:"Project 6", img:"project6.png", description:"Description of project 6.", link:"#"}
 ];
 
 // DISPLAY PROJECT CARDS
 const projectContainer = document.querySelector('.projects-container');
-projects.forEach(proj => {
+projects.forEach(proj=>{
   const card = document.createElement('div');
   card.className = 'project-card';
   card.innerHTML = `<img src="${proj.img}" alt="${proj.name}">
@@ -44,16 +43,13 @@ projects.forEach(proj => {
 
 // FADE-IN ON SCROLL
 const faders = document.querySelectorAll('.fade-section');
-const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
-  entries.forEach(entry => {
+const appearOptions = { threshold:0.2, rootMargin:"0px 0px -50px 0px" };
+const appearOnScroll = new IntersectionObserver(function(entries, observer){
+  entries.forEach(entry=>{
     if(!entry.isIntersecting) return;
     entry.target.classList.add('visible');
-    appearOnScroll.unobserve(entry.target);
+    observer.unobserve(entry.target);
   });
 }, appearOptions);
 
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
-});
+faders.forEach(fader=>appearOnScroll.observe(fader));

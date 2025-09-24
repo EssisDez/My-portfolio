@@ -1,130 +1,133 @@
 /* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* BODY */
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
-  color: #222;
-  line-height: 1.6;
-  scroll-behavior: smooth;
-  padding: 20px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:#f0f4f8;
+  color:#222;
+  line-height:1.6;
+  scroll-behavior:smooth;
 }
 
 /* HEADER */
-header {
-  text-align: center;
-  margin-bottom: 60px;
+.header {
+  background: linear-gradient(120deg,#4facfe,#00f2fe);
+  color:white;
+  text-align:center;
+  padding:80px 20px 40px 20px;
+}
+
+.header-content {
+  max-width:800px;
+  margin:0 auto;
 }
 
 .profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #007bff;
-  margin-bottom: 15px;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #fff;
+  margin-bottom:20px;
 }
 
-header h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
+.typed-text {
+  font-size:2em;
+  font-weight:bold;
+  text-shadow:0 0 10px rgba(255,255,255,0.6);
+  margin-bottom:15px;
 }
 
-header p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
+.bio {
+  font-size:1em;
+  margin:0 auto 20px auto;
+  max-width:700px;
 }
 
+/* NAV */
 nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-  transition: color 0.3s;
+  margin:0 15px;
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  transition:0.3s;
 }
-
-nav a:hover {
-  color: #ff6600;
-}
+nav a:hover { color:#ffd700; }
 
 /* SECTIONS */
 section {
-  margin-bottom: 60px;
-  opacity: 0;
-  transform: translateY(50px);
+  padding:50px 20px;
+  opacity:0;
+  transform:translateY(50px);
   transition: all 0.8s ease-out;
+  max-width:1000px;
+  margin:0 auto;
 }
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+section.visible { opacity:1; transform:translateY(0); }
 
 section h2 {
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 2em;
-  color: #222;
+  text-align:left;
+  margin-bottom:20px;
+  font-size:1.8em;
+  position:relative;
+}
+section h2::after {
+  content:"";
+  display:block;
+  width:50px;
+  height:3px;
+  background:#007bff;
+  margin-top:8px;
+  border-radius:2px;
 }
 
-/* PROJECTS CARDS */
+/* PROJECT CARDS */
 .projects-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  justify-content:center;
 }
 
 .project-card {
-  background-color: #fff;
-  border-radius: 12px;
-  width: 300px;
-  padding: 15px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background:#fff;
+  border-radius:12px;
+  width:220px;
+  padding:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  transform:translateY(-6px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.15);
+  background:linear-gradient(135deg,#e0f0ff,#ffffff);
 }
 
 .project-card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:8px;
 }
 
 .project-card a {
-  color: #007bff;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1.1em;
+  color:#007bff;
+  font-weight:bold;
+  text-decoration:none;
+  font-size:1em;
 }
 
-.project-card a:hover {
-  color: #ff6600;
-}
+.project-card a:hover { color:#ff6600; }
 
-.project-card p {
-  margin-top: 5px;
-}
+.project-card p { margin-top:5px; }
 
 /* CONTACT */
-section#contact p {
-  text-align: center;
-  margin-bottom: 10px;
-}
+section#contact p { text-align:center; margin-bottom:10px; }
 
 /* RESPONSIVE */
-@media(max-width:768px) {
-  .projects-container {
-    flex-direction: column;
-    align-items: center;
-  }
+@media(max-width:768px){
+  .projects-container { flex-direction:column; align-items:center; }
+  .project-card { width:90%; }
+  .profile-pic { width:80px; height:80px; }
 }
